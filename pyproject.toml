@@ -1,0 +1,15 @@
+[project]
+name = "elsewherr"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pyyaml>=6.0.2",
+    "requests>=2.32.3",
+    "loguru>=0.7.2",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

@@ -1,12 +1,18 @@
 import requests
 import os
+import sys
 import yaml
+from loguru import logger
 
-config = yaml.safe_load(open("config.yaml"))
+try:
+    config = yaml.safe_load(open("config.yaml"))
+except FileNotFoundError:
+    logger.error("config.yaml not found")
+    sys.exit(1)
 
 try:
     os.remove("providers.txt")
-except:
+except FileNotFoundError:
     pass
 
 tmdbHeaders = {'Content-Type': 'application/json'}
@@ -30,5 +36,3 @@ f.write("\n\nProviders\n---------\n")
 for p in providers:
     f.write(str(p)+"\n")
 f.close()
-
-
